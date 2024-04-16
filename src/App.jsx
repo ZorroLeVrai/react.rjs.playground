@@ -1,16 +1,23 @@
-import Age from './Age'
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';import Age from './Age'
+import RouterLayout from './RouterLayout';
+import Home from "./Home";
+import Advanced from "./Advanced";
 import './App.css'
 
 function App() {
   return (
     <>
-      <h1 className='center'>Playground</h1>
-      <div>
-        <Age/>
-      </div>
-      <div id="modal-footer"></div>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<RouterLayout/>}>
+            <Route path="/" element={<Home />} />
+            <Route path="/advanced" element={<Advanced/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;

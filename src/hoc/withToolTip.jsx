@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { createPortal } from 'react-dom';
-import Modal from '../Modal';
+import PortalModal from '../PortalModal';
 
-const withToolTip = (Component, toolTipText) => {
+/* Higher Order Component to add a tooltip to a React component*/
+/* renderTooltip uses a render prop to render its component */
+
+const withToolTip = (Component, renderTooltip) => {
   const EnhanceComponent = (props) => {
     const [showTooltip, setShowTooltip] = useState(false);
-    const toolTipContent = toolTipText ?? "Some tooltip";
     const mouseOver = () => setShowTooltip(true);
     const mouseOut = () => setShowTooltip(false);
     return (
@@ -13,12 +14,7 @@ const withToolTip = (Component, toolTipText) => {
         <span onMouseOver={mouseOver} onMouseOut={mouseOut}>
           <Component {...props} />
         </span>
-        {showTooltip &&
-          <div className="tooltip">
-            <span className="tooltiptext">{toolTipContent}</span>
-          </div>
-        }
-        {showTooltip && <Modal>{toolTipContent}</Modal>}
+        { showTooltip && renderTooltip() }
       </>
     );    
   };

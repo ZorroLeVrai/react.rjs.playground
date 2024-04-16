@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import withToolTip from './hoc/withToolTip';
-import Modal from './Modal';
+import Tooltip from './Tooltip';
 
 const Age = ({age}) => {
   return (
-    <>
-      <div data-testid="age_label" className="padding-medium border-light">Votre age: {age}</div>
-      {/* <Modal>
-        <div>
-          This is the right time!!!
-        </div>
-      </Modal> */}
-    </>
+    <div data-testid="age_label" className="padding-medium border-light">Votre age: {age}</div>
   );
 }
 
@@ -25,4 +18,4 @@ Age.defaultProps = {
 }
 
 //export default Age;
-export default withToolTip(Age, "Affiche votre age");
+export default withToolTip(Age, () => <Tooltip text="Affiche votre age"/>);

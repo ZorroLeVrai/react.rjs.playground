@@ -1,7 +1,8 @@
 import React from "react";
 import { createPortal } from 'react-dom';
 
-const Modal = ({ children }) => {
+// Uses a portal to display the element in the right space
+const PortalModal = ({ children }) => {
   const toolTipFooter = document.getElementById("modal-footer");
   if (toolTipFooter)
     return createPortal(
@@ -12,4 +13,4 @@ const Modal = ({ children }) => {
   return null;
 };
 
-export default Modal;
+export default PortalModal;
