@@ -10,6 +10,7 @@ const RouterLayout = () => {
       </div>
       <div>
         <LinkElement to="/advanced" text="élements avancés" />
+        <LinkElement to="/form" text="Example de form" />
       </div>
       <div>
         <Outlet />
