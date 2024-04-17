@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';import Age from './Age'
 import RouterLayout from './RouterLayout';
 import Home from "./Home";
 import Advanced from "./Advanced";
-import FormExample from "./FormExample";
+import { FormExample } from "./FormExample";
 import './App.css'
 
 function App() {
